@@ -1,0 +1,26 @@
+package org.yooreeka.examples.spamfilter;
+ 
+import org.yooreeka.examples.spamfilter.data.Email;
+import org.yooreeka.examples.spamfilter.ClassificationResult;
+
+global ClassificationResult classificationResult;
+
+rule "Tests for viagra in subject"
+dialect "mvel"
+salience 100
+when
+    $e : Email( classificationResult.isSimilar(subject, "viagra" ) )
+then
+    classificationResult.setSpamEmail(true);	
+end
+
+
+rule "Tests for 'drugs' in subject"
+dialect "mvel"
+salience 100
+when
+    $e : Email( classificationResult.isSimilar(subject, "drugs" ) )
+then
+    classificationResult.setSpamEmail(true);    
+end
+

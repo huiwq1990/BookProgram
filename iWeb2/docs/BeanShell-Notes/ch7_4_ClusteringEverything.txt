@@ -1,0 +1,13 @@
+NewsDataset ds = new FileListNewsDataset("Cluster-DS");
+String yHome = YooreekaConfigurator.getHome();
+
+ds.setDocumentDir(yHome+"/data/ch07/all");
+ds.init();
+
+NewsProcessor newsProcessor = new NewsProcessor();
+newsProcessor.createClusters(ds);
+
+NewsUI ui = new NewsUI(ds);
+ui.showClustersOnly(true);
+NewsUI.createAndShowUI(ui);
+
