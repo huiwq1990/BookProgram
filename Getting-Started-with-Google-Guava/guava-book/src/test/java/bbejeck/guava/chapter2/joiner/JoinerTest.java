@@ -21,7 +21,13 @@ import java.util.Map;
  * This class contains various unit tests for working with the Joiner class
  */
 public class JoinerTest {
-
+	@Test
+    public void SS(){
+        String[] values = null;
+        String returned = Joiner.on("|").join(values);
+        System.out.println(returned);
+        assertThat(returned,is("foo|bar|baz"));
+    }
 
 
     @Test
